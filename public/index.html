@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Webpage !</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="img">
+        <img src="img/pc.svg" />
+      </div>
+      <div class="login-container">
+        <form action="index.html" id="login-form">
+          <img class="avator" src="img/avatar.svg" />
+          <div id="login-error-msg-holder">
+            <p id="login-error-msg">
+              Invalid username
+              <span id="error-msg-second-line">and/or password</span>
+            </p>
+          </div>
+          <div class="input-div" one>
+            <div class="i">
+              <i class="fas fa-user"></i>
+            </div>
+            <div>
+              <h5>Username</h5>
+              <input class="input" type="text" name="username" id="username" />
+            </div>
+          </div>
+          <div class="input-div" two>
+            <div class="i">
+              <i class="fas fa-lock"></i>
+            </div>
+            <div>
+              <h5>password</h5>
+              <input
+                class="input"
+                type="password"
+                name="password"
+                id="password"
+              />
+            </div>
+          </div>
+          <a href="#">Forgot password ?</a>
+          <input
+            type="submit"
+            class="btn"
+            value="Login"
+            id="login-form-submit"
+          />
+        </form>
+      </div>
+    </div>
+    <script type="text/javascript" src="main.js"></script>
+  </body>
+</html>
