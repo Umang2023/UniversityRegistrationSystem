@@ -16,11 +16,19 @@ loginButton.addEventListener("click", (e) => {
     e.preventDefault();
     const username = loginForm.username.value;
     const password = loginForm.password.value;
-
-    if (username === "user" && password === "pwd") {
-        alert("You have successfully logged in.");
-        location.reload();
-    } else {
-        loginErrorMsg.style.opacity = 1;
-    }
+    console.log(username , password)
+    // if (username === "user" && password === "pwd") {
+    //     alert("You have successfully logged in.");
+    //     location.reload();
+    // } else {
+    //     loginErrorMsg.style.opacity = 1;
+    // }
+    fetch('/login')
+    .then(res=>res.json())
+    .then((data)=>{
+        console.log(data)
+    })
+    .catch((err)=>{
+        console.log(err)
+    })
 })
