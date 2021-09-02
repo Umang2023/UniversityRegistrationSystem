@@ -5,9 +5,14 @@ const bcrypt = require('bcrypt')
 const authMiddleware = async (req,res,next)=>{
     try{
         const token = req.cookies.jwt
-        const verifyUser = jwt.verify(token , process.env.SECRET_KEY)
-        
+        console.log(token)
+        const verifyUser = jwt.verify(token , process.env.JWT_SECRET_KEY)
+        const user=await User.findOne({email : verifyUser._email})
+        next();
     }catch(error){
-        console.log(error)
+        res.redirect('/')
+        // res.status(401).send(error)
     }
 }
+
+module.exports = authMiddleware

@@ -5,6 +5,7 @@ var PORT=process.env.PORT || 5000
 require('dotenv').config()
 const mongoose = require('mongoose')
 const cookieParser = require('cookie-parser')
+const authMiddleware = require('./middleware/authMiddlware')
 
 // mongoose.connect(process.env.MONGO_URL,{useNewUrlParser:true,useUnifiedTopology:true,useFindAndModify:false} )
 mongoose.connect('mongodb://localhost:27017/URS',{useNewUrlParser:true,useUnifiedTopology:true} );
@@ -23,6 +24,10 @@ app.use(express.static('public'))
 
 app.get('/',(req,res)=>{
     res.sendFile(__dirname + '/public/html/index.html')
+})
+
+app.get('/esehi',authMiddleware,(req,res)=>{
+    res.sendFile(__dirname + '/public/html/esehi.html')
 })
 
 app.listen(PORT,()=>{

@@ -23,7 +23,16 @@ loginButton.addEventListener("click", (e) => {
     // } else {
     //     loginErrorMsg.style.opacity = 1;
     // }
-    fetch('/login')
+    fetch('/login',{
+        method:"POST",
+        headers:{
+            'Content-Type':'application/json'
+        },
+        body:JSON.stringify({
+            email:username,
+            password:password
+        })
+    })
     .then(res=>res.json())
     .then((data)=>{
         console.log(data)
