@@ -68,25 +68,49 @@ router.post('/login',async(req,res)=>{
     
 })
 
-router.get('/login',async (req,res)=>{
-    // const email = req.body.email;
-    // const password = req.body.password;
-    const token={
-        n:123,
-        a:"abc"
-    }
-    res.cookie('jwt',token,{
-        expires:new Date(Date.now() + 1000*15*24*60*60),
-        httpOnly:true
-    })
-
-    console.log(req.cookies.jwt)
-
-    return res.status(200).json('success')
-})
-
 router.get('/protected',authMiddleware,async (req,res)=>{
     return res.json("nice")
+})
+
+router.put('/editDetails', authMiddleware , async (req,res)=>{
+    try{
+        name=req.body.name;
+        fatherName=req.body.fatherName;
+        motherName=req.body.motherName;
+        branch=req.body.branch;
+        yearOfStudy=req.body.yearOfStudy;
+        yearOfAdmission=req.body.yearOfAdmission;
+        dob=req.body.dob;
+        backlog=req.body.backlog;
+
+        const updatedUser = await User.findOneAndUpdate({email:req.user.email},{
+            name:req.body.name,
+            fatherName:req.body.fatherName,
+            motherName:req.body.motherName,
+            branch:req.body.branch,
+            yearOfStudy:req.body.yearOfStudy,
+            yearOfAdmission:req.body.yearOfAdmission,
+            dob:req.body.dob,
+            backlog:req.body.backlog,
+        },{
+            new:true
+        })
+        .catch(err=>{
+            throw new err
+        })
+
+        return res.status(200).json({isError:false , updatedUser})
+
+    }catch(error){
+        return res.status(400).json({isError:true , message:error.message})
+    }
+    
+
+    
+})
+
+router.get('/test', authMiddleware, async (req,res)=>{
+    console.log(req.user)
 })
 
 module.exports=router;

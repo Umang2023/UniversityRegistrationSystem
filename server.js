@@ -19,7 +19,8 @@ mongoose.connection.on('error',()=>{
 
 app.use(bodyParser.json())
 app.use(cookieParser())
-app.use(require('./routes/user'))
+app.use('/user',require('./routes/user'))
+app.use('/course',require('./routes/course'))
 app.use(express.static('public'))
 
 app.get('/',(req,res)=>{
