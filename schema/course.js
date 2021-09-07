@@ -4,7 +4,8 @@ const courseSchema = new mongoose.Schema({
         type:String
     },
     courseID:{
-        type:String
+        type:String,
+        unique:true
     },
     department:{
         type:String
@@ -13,7 +14,7 @@ const courseSchema = new mongoose.Schema({
         type:String
     }],
     faculty:[{
-        type:String 
+        type:String
     }],
     totalSeats:{
         type:Number
