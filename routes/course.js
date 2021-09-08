@@ -57,6 +57,8 @@ router.put('/register',authMiddleware , async(req,res)=>{
 
         if(req.user.registeredCourses.length == 6) throw new Error('Maximum registration limit exceeded')
 
+        if(req.user.registeredCourses.includes(courseSelected.id)) throw new Error('Course already registered')
+
         const courseUpdated = await Course.findOneAndUpdate({courseID},{
             $inc:{remainingSeats:-1}
         },{
@@ -75,6 +77,10 @@ router.put('/register',authMiddleware , async(req,res)=>{
     }catch(error){
         return res.status(400).json({isError:true ,  message:error.message})
     }
+    
+})
+
+router.put('/drop' , authMiddleware, async(req,res)=>{
     
 })
 
