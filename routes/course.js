@@ -71,7 +71,7 @@ router.put('/register',authMiddleware , async(req,res)=>{
             new:true
         })
 
-        console.log(userUpdated)
+        // console.log(userUpdated)
         return res.status(200).json({isError:false,  message:"registration successfull"})
 
     }catch(error){
@@ -81,7 +81,31 @@ router.put('/register',authMiddleware , async(req,res)=>{
 })
 
 router.put('/drop' , authMiddleware, async(req,res)=>{
-    
+    try{
+        const courseID=req.body.courseID;
+        var courseSelected = await Course.findOne({courseID})
+
+        if(!courseSelected) throw new Error('No such course available')
+
+        if(!req.user.registeredCourses.includes(courseSelected.id)) throw new Error('Course is previously not registered')
+
+        const courseUpdated = await Course.findOneAndUpdate({courseID},{
+            $inc:{remainingSeats:1}
+        },{
+            new:true
+        })
+
+        const userUpdated=await User.findByIdAndUpdate(req.user.id,{
+            $pull:{registeredCourses:courseUpdated.id}
+        },{
+            new:true
+        })
+
+        return res.status(200).json({isError:false,  message:"course dropped successfully"})
+
+    }catch(error){
+        return res.status(400).json({isError:true , message:error.message})
+    }
 })
 
 module.exports = router;
