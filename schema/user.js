@@ -1,42 +1,41 @@
 const mongoose = require('mongoose')
-const {ObjectId} = mongoose.Schema.Types
+const { ObjectId } = mongoose.Schema.Types
 const userSchema = new mongoose.Schema({
-    name:{
-        type:String
+    name: {
+        type: String
     },
-    email:{
-        type:String
+    email: {
+        type: String
     },
-    password:{
-        type:String
+    password: {
+        type: String
     },
-    fatherName:{
-        type:String
+    fatherName: {
+        type: String
     },
-    motherName:{
-        type:String
+    motherName: {
+        type: String
     },
-    branch:{
-        type:String
+    branch: {
+        type: String
     },
-    yearOfAdmission:{
-        type:Number
+    yearOfAdmission: {
+        type: Number
     },
-    yearOfStudy:{
-        type:Number
+    yearOfStudy: {
+        type: Number
     },
-    dob:{
-        type:Date
+    dob: {
+        type: Date
     },
-    backlog:{
-        type:Number
+    backlog: {
+        type: Number
     },
-    registeredCourses:[{
-        type:ObjectId,
-        ref:'Course',
-        unique:true
+    registeredCourses: [{
+        type: ObjectId,
+        ref: 'Course',
     }]
 })
 
-const User = mongoose.model('User' , userSchema);
+const User = mongoose.model('User', userSchema);
 module.exports = User

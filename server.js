@@ -31,6 +31,9 @@ app.get('/signup', (req, res) => {
     res.sendFile(__dirname + '/public/html/signup.html')
 })
 
+app.get('/home', (req, res) => {
+    res.sendFile(__dirname + '/public/html/home.html')
+})
 app.get('/esehi', authMiddleware, (req, res) => {
     res.sendFile(__dirname + '/public/html/esehi.html')
 })

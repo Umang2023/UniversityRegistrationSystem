@@ -5,52 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login Webpage !</title>
     <link rel="stylesheet" href="../css/styles.css" />
+    
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    
   </head>
   <body>
-    <div class="container">
-      <div class="img">
+    <div class="container browser-default">
+      <div class="img browser-default">
         <img src="../img/pc.svg" />
       </div>
-      <div class="login-container">
-        <form action="index.html" id="login-form">
-          <img class="avator" src="../img/avatar.svg" />
-          <div id="login-error-msg-holder">
-            <p id="login-error-msg">
+      <div class="login-container browser-default">
+        <form action="index.html" id="login-form" class="browser-default">
+          <img class="avator browser-default" src="../img/avatar.svg" />
+          <div id="login-error-msg-holder" class="browser-default">
+            <p id="login-error-msg" class="browser-default">
               Invalid username
-              <span id="error-msg-second-line">and/or password</span>
+              <span id="error-msg-second-line" class="browser-default"
+                >and/or password</span
+              >
             </p>
           </div>
-          <div class="input-div" one>
-            <div class="i">
-              <i class="fas fa-user"></i>
+          <div class="input-div browser-default" one>
+            <div class="i browser-default">
+              <i class="fas fa-user browser-default"></i>
             </div>
-            <div>
-              <h5>Username</h5>
-              <input class="input" type="text" name="username" id="username" />
+            <div class="browser-default">
+              <h5 class="browser-default">Username</h5>
+              <input
+                class="input browser-default"
+                type="text"
+                name="username"
+                id="username"
+              />
             </div>
           </div>
-          <div class="input-div" two>
-            <div class="i">
-              <i class="fas fa-lock"></i>
+          <div class="input-div browser-default" two>
+            <div class="i browser-default">
+              <i class="fas fa-lock browser-default"></i>
             </div>
-            <div>
+            <div class="browser-default">
               <h5>password</h5>
               <input
-                class="input"
+                class="input browser-default"
                 type="password"
                 name="password"
                 id="password"
               />
             </div>
           </div>
-          <a href="#">Forgot password ?</a>
-          <input
-            type="submit"
-            class="btn"
-            value="Login"
-            id="login-form-submit"
-          />
+          <a href="#" class="browser-default">Forgot password ?</a>
+          <div class="login-btn-div browser-default">
+            <input
+              type="button"
+              class="btn browser-default"
+              value="Sign Up"
+              id="sign-up"
+            />
+            <input
+              type="submit"
+              class="btn browser-default"
+              value="Login"
+              id="login-form-submit"
+            />
+          </div>
         </form>
       </div>
     </div>

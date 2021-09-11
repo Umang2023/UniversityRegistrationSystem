@@ -21,22 +21,28 @@ signupButton.addEventListener("click", (e) => {
     const password = signupForm.password.value;
     console.log(username, email, password);
     // alert("Success");
-    fetch('/signup',{
-        method:"POST",
-        headers:{
-            'Content-Type':'application/json'
+    fetch('/user/signup', {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
         },
-        body:JSON.stringify({
+        body: JSON.stringify({
             email: email,
             password: password,
             name: username
         })
     })
-    .then(res => res.json())
-    .then((data) => {
-        console.log(data)
-    })
-    .catch((err) => {
-        console.log(err)
-    })
+        .then(res => res.json())
+        .then((data) => {
+            console.log(data)
+            if (data) {
+                if (data.message = "user saved successfully") {
+                    // window.location.href = "/"
+                    console.log("Success")
+                }
+            }
+        })
+        .catch((err) => {
+            console.log(err)
+        })
 })
