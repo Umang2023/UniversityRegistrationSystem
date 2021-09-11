@@ -20,6 +20,18 @@ body {
     padding: 0 2rem;
 }
 
+.sign-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup-container {
+    width: 30%;
+}
+
 .img {
     display: flex;
     justify-content: flex-end;
@@ -41,8 +53,18 @@ body {
     margin-bottom: 1rem;
 }
 
+.img-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 form {
     width: 80%;
+}
+
+#signup-form {
+    width: 100%;
 }
 
 #login-error-msg-holder {
@@ -167,6 +189,13 @@ a {
 
 a:hover {
     color: #5557ec;
+}
+
+.btn-div {
+    width: 100%;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 5%;
 }
 
 .btn {
