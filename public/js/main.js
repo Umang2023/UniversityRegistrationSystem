@@ -38,7 +38,7 @@ loginButton.addEventListener("click", (e) => {
             console.log(data)
             if (data) {
                 console.log(data.message);
-                if (data.message === "Login successful") {
+                if (!data.isError) {
                     window.location.href = "/home";
                 } else {
                     loginErrorMsg.innerHTML = data.message;

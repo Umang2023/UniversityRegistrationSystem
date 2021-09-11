@@ -35,11 +35,9 @@ signupButton.addEventListener("click", (e) => {
         .then(res => res.json())
         .then((data) => {
             console.log(data)
-            if (data) {
-                if (data.message = "user saved successfully") {
-                    // window.location.href = "/"
-                    console.log("Success")
-                }
+            if (data && !data.isError) {
+                window.location.href = "/"
+                console.log("Success")    
             }
         })
         .catch((err) => {
