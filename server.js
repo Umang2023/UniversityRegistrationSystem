@@ -24,15 +24,27 @@ app.use('/course', require('./routes/course'))
 app.use(express.static('public'))
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/public/html/index.html')
+    res.sendFile(__dirname + '/public/html/home.html')
+})
+
+app.get('/announcement', (req, res) => {
+    res.sendFile(__dirname + '/public/html/announcement.html')
+})
+
+app.get('/courses', (req, res) => {
+    res.sendFile(__dirname + '/public/html/courses.html')
+})
+
+app.get('/registration', (req, res) => {
+    res.sendFile(__dirname + '/public/html/registration.html')
 })
 
 app.get('/signup', (req, res) => {
     res.sendFile(__dirname + '/public/html/signup.html')
 })
 
-app.get('/home', (req, res) => {
-    res.sendFile(__dirname + '/public/html/home.html')
+app.get('/signin', (req, res) => {
+    res.sendFile(__dirname + '/public/html/signin.html')
 })
 app.get('/esehi', authMiddleware, (req, res) => {
     res.sendFile(__dirname + '/public/html/esehi.html')

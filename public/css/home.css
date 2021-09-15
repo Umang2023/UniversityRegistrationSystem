@@ -1,0 +1,18 @@
+.sidenav-li-items{
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.sidenav-li-items > .sidenav-link{
+    font-size: x-large;
+}
+
+.grid-container{
+    display: grid;  
+    grid-template-columns: auto auto 
+}
+
+/* .grid-item{
+
+} */
