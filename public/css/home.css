@@ -1,16 +1,52 @@
-.sidenav-li-items{
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.sidenav.sidenav-fixed {
+    width: 21vw;
+}
+
+.sidenav-li-items {
     text-align: center;
     margin-top: 2rem;
     margin-bottom: 2rem;
 }
 
-.sidenav-li-items > .sidenav-link{
+.sidenav-li-items>.sidenav-link {
     font-size: x-large;
 }
 
-.grid-container{
-    display: grid;  
-    grid-template-columns: auto auto 
+/* 
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto
+} */
+
+.logo-img {
+    width: 200px;
+    height: 200px;
+}
+
+.header {
+    background-color: rgb(255, 9, 9);
+    margin-left: 21vw;
+    width: 79vw;
+    height: 10vh;
+    margin-top: 0px;
+}
+
+.header .header-content {
+    width: 100%;
+    height: 10vh;
+    overflow: hidden;
+}
+
+.header .header-content>h3 {
+    font-size: 2rem;
+    margin: 1rem;
+    text-align: right;
+    height: 100%;
 }
 
 /* .grid-item{
