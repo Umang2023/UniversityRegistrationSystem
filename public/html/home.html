@@ -34,18 +34,46 @@
         <a href="/registration" class="sidenav-link">Course Registration</a>
       </li>
     </ul>
-
-    <!-- <div style="margin-left: 21%">
-      <div class="grid-container">
-        <div class="grid-item">Name</div>
-        <div class="grid-item">Father's Name</div>
-        <div class="grid-item">Mother's Name</div>
-      </div>
-    </div> -->
+    
     <div class="header">
-      <div class="header-content">
-        <h3>User Name</h3>
+        <div class="header-content">
+          <h3>User Name</h3>
+        </div>
+    </div>
+      
+    <div style="margin-left: 21%;">
+      
+      <div class="grid-container">
+  
+          <div class="grid-item"> Name </div>
+          <div class="grid-item"> <input type="text" id="student_name" style="width: 50%;" class="browser-default"/> </div>
+          
+          <div class="grid-item"> Father's Name </div>
+          <div class="grid-item"> <input type="text" id="student_father_name" style="width: 50%;" class="browser-default"/> </div>
+  
+          <div class="grid-item"> Mother's Name </div>
+          <div class="grid-item"> <input type="text" id="student_mother_name"  style="width: 50%;" class="browser-default"/> </div>
+        
+          <div class="grid-item"> Branch </div>
+          <div class="grid-item"> <input type="text" id="student_branch"  style="width: 50%;" class="browser-default"/> </div>
+  
+          <div class="grid-item"> Year of Admission </div>
+          <div class="grid-item"> <input type="text" id="student_year_of_admission"  style="width: 50%;" class="browser-default"/> </div>
+  
+          <div class="grid-item"> Year of Study </div>
+          <div class="grid-item"> <input type="text" id="student_year_of_study"  style="width: 50%;" class="browser-default"/> </div>
+  
+          <div class="grid-item"> Date of birth </div>
+          <div class="grid-item"> <input type="date" id="student_date_of_birth"  style="width: 50%;" class="browser-default"/> </div>
+  
+          <div class="grid-item"> Backlog </div>
+          <div class="grid-item"> <input type="text" id="student_backlog"  style="width: 50%;" class="browser-default"/> </div>
+  
       </div>
+  
+      <button class="btn-large" onclick="update_student_details()" style="margin-left: 3%;">Save Changes</button>
+    
     </div>
   </body>
+  <script src="../js/home.js"></script>
 </html>

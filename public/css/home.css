@@ -17,11 +17,11 @@
     font-size: x-large;
 }
 
-/* 
+
 .grid-container {
     display: grid;
-    grid-template-columns: auto auto
-} */
+    grid-template-columns: auto auto;
+}
 
 .logo-img {
     width: 200px;
@@ -49,6 +49,8 @@
     height: 100%;
 }
 
-/* .grid-item{
-
-} */
+.grid-item{
+    margin-top: 3%;
+    margin-bottom: 3%;
+    margin-left: 5%;
+}
