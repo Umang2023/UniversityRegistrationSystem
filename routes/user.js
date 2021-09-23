@@ -111,4 +111,11 @@ router.get('/test', authMiddleware, async (req, res) => {
     console.log(req.user)
 })
 
+router.get('/logout', function (req, res) {
+    res.status(200).clearCookie('jwt', {
+      path: '/'
+    });
+    res.redirect('/signin')
+});
+
 module.exports = router;

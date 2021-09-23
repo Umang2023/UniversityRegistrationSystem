@@ -23,19 +23,23 @@ app.use('/user', require('./routes/user'))
 app.use('/course', require('./routes/course'))
 app.use(express.static('public'))
 
-app.get('/', (req, res) => {
+app.get('/home',authMiddleware, (req, res) => {
     res.sendFile(__dirname + '/public/html/home.html')
 })
 
-app.get('/announcement', (req, res) => {
+app.get('/',authMiddleware, (req, res) => {
+    res.sendFile(__dirname + '/public/html/home.html')
+})
+
+app.get('/announcement',authMiddleware, (req, res) => {
     res.sendFile(__dirname + '/public/html/announcement.html')
 })
 
-app.get('/courses', (req, res) => {
+app.get('/courses',authMiddleware, (req, res) => {
     res.sendFile(__dirname + '/public/html/courses.html')
 })
 
-app.get('/registration', (req, res) => {
+app.get('/registration',authMiddleware, (req, res) => {
     res.sendFile(__dirname + '/public/html/registration.html')
 })
 

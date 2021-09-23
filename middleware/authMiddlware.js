@@ -13,7 +13,7 @@ const authMiddleware = async (req,res,next)=>{
         req.user = user
         next();
     }catch(error){
-        res.redirect('/')
+        res.redirect('/signin')
         // res.status(401).send(error)
     }
 }
