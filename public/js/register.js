@@ -84,13 +84,30 @@ document.addEventListener('DOMContentLoaded', async () => {
                 unRegisterButton.innerHTML = 'Unregister'
                 unRegisterButton.setAttribute("class", "unregister_btn");
                 // registerButton.setAttribute("id", "unreg_btn");
-                unRegisterButton.onclick = function () { UnRegisterCourse(course.courseID); }
+                unRegisterButton.onclick = async function () { 
+                    var status = await UnRegisterCourse(course.courseID); 
+                    if(status)
+                    {
+                        unRegisterButton.innerHTML = 'Register'
+                        unRegisterButton.setAttribute("class", "register_btn");
+
+                    }
+                }
                 actionDiv.appendChild(unRegisterButton)
             } else {
                 var registerButton = document.createElement('button')
                 registerButton.innerHTML = 'Register'
                 registerButton.setAttribute("class", "register_btn");
-                registerButton.onclick = function () { RegisterCourse(course.courseID); }
+                registerButton.onclick = async function () 
+                { 
+                    var status = await RegisterCourse(course.courseID); 
+                    if(status)
+                    {
+                        registerButton.innerHTML = 'Unregister'
+                        registerButton.setAttribute("class", "unregister_btn");
+
+                    }
+                }
                 // registerButton.setAttribute("id", "reg_btn");
                 actionDiv.appendChild(registerButton)
             }
@@ -102,9 +119,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 
-function RegisterCourse(courseID) {
+async function RegisterCourse(courseID) {
     console.log("Registering course : ", courseID)
-    fetch('/course/register', {
+    await fetch('/course/register', {
         method: 'PUT',
         headers: {
             'Content-type': 'application/json'
@@ -120,12 +137,15 @@ function RegisterCourse(courseID) {
                 // setTimeout({}, 10000)
                 // window.location.reload()
             }
+            else
+            return false
         })
+    return true
 }
 
-function UnRegisterCourse(courseID) {
+async function UnRegisterCourse(courseID) {
     console.log("Dropping course : ", courseID)
-    fetch('/course/drop', {
+    await fetch('/course/drop', {
         method: 'PUT',
         headers: {
             'Content-type': 'application/json'
@@ -140,6 +160,10 @@ function UnRegisterCourse(courseID) {
                 M.toast({ html: `${data.message} <br> Refresh the page to see changes `, classes: 'toast-btn' })
                 // setTimeout({}, 10000)
                 // window.location.reload()
+                
             }
+            else
+            return false
         })
+        return true
 }
