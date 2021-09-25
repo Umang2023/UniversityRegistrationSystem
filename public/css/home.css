@@ -1,6 +1,7 @@
 * {
     margin: 0px;
     padding: 0px;
+    /* overflow-x: hidden; */
 }
 
 .sidenav.sidenav-fixed {
@@ -9,14 +10,14 @@
 
 .sidenav-li-items {
     text-align: center;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    /* margin-top: 2rem; */
+    /* margin-bottom: 2rem; */
 }
 
 .sidenav-li-items>.sidenav-link {
     font-size: x-large;
+    color: white !important;
 }
-
 
 .grid-container {
     display: grid;
@@ -29,28 +30,129 @@
 }
 
 .header {
-    background-color: rgb(255, 9, 9);
+    background-color: #5557ec;
     margin-left: 21vw;
-    width: 79vw;
-    height: 10vh;
+    /* width: 79vw; */
+    height: 13vh;
     margin-top: 0px;
+    color: white !important;
 }
 
 .header .header-content {
     width: 100%;
     height: 10vh;
-    overflow: hidden;
+    display: flex;
+    justify-content: right;
+    align-items: right;
+    flex-direction: row;
 }
 
 .header .header-content>h3 {
-    font-size: 2rem;
-    margin: 1rem;
+    font-size: 2.2rem;
+    margin: 1.4rem;
     text-align: right;
     height: 100%;
 }
 
-.grid-item{
+.header .header-content .fa {
+    margin: 1.7rem 1rem 1rem 0rem;
+    font-size: 2rem;
+    height: 100%;
+}
+
+.grid-container {
+    justify-items: center;
+    align-items: center;
+}
+
+.grid-item {
     margin-top: 3%;
     margin-bottom: 3%;
     margin-left: 5%;
+    font-size: 1.2rem !important;
+}
+
+.grid-item>input {
+    width: 300px !important;
+    font-size: 1.2rem !important;
+}
+
+/* .btns-div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    padding: 5%;
+} */
+
+.btn-div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.btn {
+    display: block;
+    width: 20%;
+    height: 50px !important;
+    border-radius: 25px;
+    margin: 1rem 0;
+    font-size: 1.2rem !important;
+    outline: none;
+    border: none;
+    background-image: linear-gradient(to right, #5557ec, #3134db, #1e2097);
+    cursor: pointer;
+    color: #fff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-size: 200%;
+    text-transform: uppercase;
+    transition: 0.5s;
+    border-radius: 15px !important;
+}
+
+.btn:hover, .btn-link:hover {
+    background-position: right;
+}
+
+.btn-link {
+    display: block;
+    height: fit-content !important;
+    border-radius: 25px;
+    margin: 1rem 1rem;
+    font-size: 1.2rem !important;
+    outline: none;
+    border: none;
+    background-image: linear-gradient(to right, #5557ec, #3134db, #1e2097);
+    cursor: pointer;
+    color: #fff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-size: 200%;
+    text-transform: uppercase;
+    transition: 0.5s;
+    border-radius: 15px !important;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.toast-btn {
+    display: block;
+    border-radius: 25px;
+    margin: 1rem 0;
+    font-size: 1.2rem !important;
+    outline: none;
+    border: none;
+    background-image: linear-gradient(to right, #5557ec, #3134db, #1e2097);
+    cursor: pointer;
+    color: #fff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-size: 200%;
+    text-transform: uppercase;
+    transition: 0.5s;
+    border-radius: 15px !important;
+}
+
+input[type=text]:focus, input[type=date]:focus {
+    border-bottom: 2px solid #5557ec !important;
 }

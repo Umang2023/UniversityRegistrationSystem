@@ -1,5 +1,4 @@
-function update_student_details()
-{
+function update_student_details() {
     name = document.getElementById('student_name').value
     fatherName = document.getElementById('student_father_name').value
     motherName = document.getElementById('student_mother_name').value
@@ -9,12 +8,12 @@ function update_student_details()
     dob = document.getElementById('student_date_of_birth').value
     backlog = document.getElementById('student_backlog').value
     // console.log()
-    fetch('/user/editDetails',{
-        method:'PUT',
-        headers:{
-            'Content-Type':'application/json'
+    fetch('/user/editDetails', {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
         },
-        body:JSON.stringify({
+        body: JSON.stringify({
             name,
             fatherName,
             motherName,
@@ -25,38 +24,40 @@ function update_student_details()
             backlog
         })
     })
-    .then(res=>res.json())
-    .then((data)=>{
-        console.log(data)
-        if(!data.isError)
-        {
-            document.getElementById('student_name').value = data.updatedUser.name
-            document.getElementById('student_father_name').value = data.updatedUser.fatherName
-            document.getElementById('student_mother_name').value = data.updatedUser.motherName
-            document.getElementById('student_branch').value = data.updatedUser.branch
-            document.getElementById('student_year_of_study').value = data.updatedUser.yearOfStudy
-            document.getElementById('student_year_of_admission').value = data.updatedUser.yearOfAdmission
-            document.getElementById('student_date_of_birth').value = new Date(data.updatedUser.dob).toISOString().split('T')[0]
-            document.getElementById('student_backlog').value = data.updatedUser.backlog
-        }
-        
-    })
-    .catch(err=>{
-        console.log(err)
-    })
+        .then(res => res.json())
+        .then((data) => {
+            console.log(data)
+            if (!data.isError) {
+                document.getElementById('student_name').value = data.updatedUser.name
+                document.getElementById('student_father_name').value = data.updatedUser.fatherName
+                document.getElementById('student_mother_name').value = data.updatedUser.motherName
+                document.getElementById('student_branch').value = data.updatedUser.branch
+                document.getElementById('student_year_of_study').value = data.updatedUser.yearOfStudy
+                document.getElementById('student_year_of_admission').value = data.updatedUser.yearOfAdmission
+                document.getElementById('student_date_of_birth').value = new Date(data.updatedUser.dob).toISOString().split('T')[0]
+                document.getElementById('student_backlog').value = data.updatedUser.backlog
+                M.toast({ html: 'Changes Saved Successfully!', classes: 'toast-btn' })
+            }
+
+        })
+        .catch(err => {
+            console.log(err)
+        })
 }
 
-async function logout()
-{
+async function logout() {
     await fetch('/user/logout')
+    M.toast({ html: 'Logged Out Successfully!', classes: 'toast-btn' })
+    setTimeout(function () {
+    }, 10000);
     window.location.href = '/signin'
 }
 
-document.addEventListener('DOMContentLoaded',async ()=>{
+document.addEventListener('DOMContentLoaded', async () => {
     // document.getElementById('student_name').value = 'hi'
     // console.log(document.cookie)
     // document.cookie = 'username = Vikash'
-    var data=await fetch('/user/info').then(res=>res.json())
+    var data = await fetch('/user/info').then(res => res.json())
     console.log(data)
     document.getElementById('student_name').value = data.data.name
     document.getElementById('student_father_name').value = data.data.fatherName
@@ -66,4 +67,5 @@ document.addEventListener('DOMContentLoaded',async ()=>{
     document.getElementById('student_year_of_admission').value = data.data.yearOfAdmission
     document.getElementById('student_backlog').value = data.data.backlog
     document.getElementById('student_date_of_birth').value = new Date(data.data.dob).toISOString().split('T')[0]
+    document.getElementById('user_name').innerHTML = data.data.name
 })
