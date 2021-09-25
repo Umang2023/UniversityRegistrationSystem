@@ -67,5 +67,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.getElementById('student_year_of_admission').value = data.data.yearOfAdmission
     document.getElementById('student_backlog').value = data.data.backlog
     document.getElementById('student_date_of_birth').value = new Date(data.data.dob).toISOString().split('T')[0]
-    document.getElementById('user_name').innerHTML = data.data.name
+    if (data.data.name)
+        document.getElementById('user_name').innerHTML = data.data.name
 })

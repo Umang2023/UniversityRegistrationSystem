@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    var data = await fetch('/user/getcourses').then(res => res.json())
-    console.log(data)
-    if (data.data.length > 0) {
+    console.log("Before")
+    var data = await fetch('/course/current').then(res => res.json());
+    console.log(data);
+    if (data.allCourseDetails.length > 0) {
         var containerGrid = document.querySelector('.grid-container')
         // assuming to be no error
         var indexDivTitle = document.createElement('div')
@@ -26,23 +27,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         `
         containerGrid.appendChild(nameDivTitle)
 
-        var departmentDivTitle = document.createElement('div')
-        departmentDivTitle.setAttribute('class', 'grid-item')
-        departmentDivTitle.innerHTML = `
-            Department
-        `
-        containerGrid.appendChild(departmentDivTitle)
-
-        var facultyDivTitle = document.createElement('div')
-        facultyDivTitle.setAttribute('class', 'grid-item')
-        facultyDivTitle.innerHTML = `Faculty`
-        containerGrid.appendChild(facultyDivTitle)
-
-        var prerequisitesDivTitle = document.createElement('div')
-        prerequisitesDivTitle.setAttribute('class', 'grid-item')
-        prerequisitesDivTitle.innerHTML = `Prerequisites`
-        containerGrid.appendChild(prerequisitesDivTitle)
-
         var remainingSeatsDivTitle = document.createElement('div')
         remainingSeatsDivTitle.setAttribute('class', 'grid-item')
         remainingSeatsDivTitle.innerHTML = `
@@ -50,7 +34,14 @@ document.addEventListener('DOMContentLoaded', async () => {
         `
         containerGrid.appendChild(remainingSeatsDivTitle)
 
-        data.data.forEach((course, index) => {
+        var actionDivTitle = document.createElement('div')
+        actionDivTitle.setAttribute('class', 'grid-item')
+        actionDivTitle.innerHTML = `
+            Action
+        `
+        containerGrid.appendChild(actionDivTitle)
+
+        data.allCourseDetails.forEach((course, index) => {
 
             var indexDiv = document.createElement('div')
             indexDiv.setAttribute('class', 'grid-item')
@@ -74,35 +65,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         `
             containerGrid.appendChild(nameDiv)
 
-            var departmentDiv = document.createElement('div')
-            departmentDiv.setAttribute('class', 'grid-item')
-            departmentDiv.innerHTML = `
-            ${course.department}
-        `
-            containerGrid.appendChild(departmentDiv)
-
-            var facultyDiv = document.createElement('div')
-            facultyDiv.setAttribute('class', 'grid-item')
-            course.faculty.forEach(element => {
-                var listElement = document.createElement('p')
-                listElement.innerHTML = `
-                ${element}
-            `
-                facultyDiv.appendChild(listElement)
-            });
-            containerGrid.appendChild(facultyDiv)
-
-            var prerequisitesDiv = document.createElement('div')
-            prerequisitesDiv.setAttribute('class', 'grid-item')
-            course.prerequisites.forEach(element => {
-                var listElement = document.createElement('p')
-                listElement.innerHTML = `
-                ${element}
-            `
-                prerequisitesDiv.appendChild(listElement)
-            });
-            containerGrid.appendChild(prerequisitesDiv)
-
             var remainingSeatsDiv = document.createElement('div')
             remainingSeatsDiv.setAttribute('class', 'grid-item')
             remainingSeatsDiv.innerHTML = `
@@ -110,6 +72,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         `
             containerGrid.appendChild(remainingSeatsDiv)
 
+            var actionDiv = document.createElement('div')
+            actionDiv.setAttribute('class', 'grid-item')
+            var registerButton = document.createElement('button')
+            registerButton.innerHTML = 'Register'
+            actionDiv.appendChild(registerButton)
+            containerGrid.appendChild(actionDiv)
         });
+
     }
-})
+});
