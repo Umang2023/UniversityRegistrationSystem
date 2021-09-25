@@ -2,6 +2,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.log("Before")
     var data = await fetch('/course/current').then(res => res.json());
     console.log(data);
+    var registered_data = await fetch('/user/getcourses').then(res => res.json());
+    console.log(registered_data)
     if (data.allCourseDetails.length > 0) {
         var containerGrid = document.querySelector('.grid-container')
         // assuming to be no error
@@ -74,11 +76,52 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             var actionDiv = document.createElement('div')
             actionDiv.setAttribute('class', 'grid-item')
-            var registerButton = document.createElement('button')
-            registerButton.innerHTML = 'Register'
-            actionDiv.appendChild(registerButton)
+
+
+            const found = registered_data.data.find(ex_course => ex_course.courseID === course.courseID);
+            if (found) {
+                var unRegisterButton = document.createElement('button')
+                unRegisterButton.innerHTML = 'Unregister'
+                unRegisterButton.setAttribute("class", "unregister_btn");
+                // registerButton.setAttribute("id", "unreg_btn");
+                unRegisterButton.onclick = UnRegisterCourse(course.courseID);
+                actionDiv.appendChild(unRegisterButton)
+            } else {
+                var registerButton = document.createElement('button')
+                registerButton.innerHTML = 'Register'
+                registerButton.setAttribute("class", "register_btn");
+                registerButton.onclick = RegisterCourse(course.courseID);
+                // registerButton.setAttribute("id", "reg_btn");
+                actionDiv.appendChild(registerButton)
+            }
+
             containerGrid.appendChild(actionDiv)
         });
 
     }
 });
+
+
+function RegisterCourse(courseID) {
+    console.log("Registering course : ", courseID)
+    fetch('/course/register', {
+        method: 'PUT',
+        headers: {
+            'Content-type': 'application/json;'
+        },
+        body: JSON.stringify(courseID)
+    }).then(res => res.json())
+        .then(data => console.log(data))
+}
+
+function UnRegisterCourse(courseID) {
+    console.log("Dropping course : ", courseID)
+    fetch('/course/drop', {
+        method: 'PUT',
+        headers: {
+            'Content-type': 'application/json;'
+        },
+        body: JSON.stringify(courseID)
+    }).then(res => res.json())
+        .then(data => console.log(data))
+}
