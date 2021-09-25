@@ -1,0 +1,8 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 5% 15% 15% 15% 20% 20% 10%
+}
+
+.grid-item{
+    border: 1px black solid;
+}

@@ -70,6 +70,35 @@ router.get('/protected', authMiddleware, async (req, res) => {
     return res.json("nice")
 })
 
+router.get('/info', authMiddleware,async(req,res)=>{
+    try{
+        if(req.user)
+        return res.status(200).json({isError:false , data:req.user})
+        
+        throw new Error('User not found')
+
+    }catch(err){
+        return res.json(400).status({isError:true, message : err.message})
+    }
+})
+
+router.get('/getcourses', authMiddleware,async(req,res)=>{
+    try{
+        if(req.user)
+        {
+            var userData = await User.findById(req.user.id).populate('registeredCourses')
+            // console.log(userData)
+            return res.status(200).json({isError:false , data:userData.registeredCourses})
+        }
+        
+        
+        throw new Error('User not found')
+
+    }catch(err){
+        return res.json(400).status({isError:true, message : err.message})
+    }
+})
+
 router.put('/editDetails', authMiddleware, async (req, res) => {
     try {
         name = req.body.name;

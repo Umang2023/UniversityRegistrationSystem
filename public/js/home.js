@@ -36,7 +36,7 @@ function update_student_details()
             document.getElementById('student_branch').value = data.updatedUser.branch
             document.getElementById('student_year_of_study').value = data.updatedUser.yearOfStudy
             document.getElementById('student_year_of_admission').value = data.updatedUser.yearOfAdmission
-            document.getElementById('student_date_of_birth').value = data.updatedUser.dob
+            document.getElementById('student_date_of_birth').value = new Date(data.updatedUser.dob).toISOString().split('T')[0]
             document.getElementById('student_backlog').value = data.updatedUser.backlog
         }
         
@@ -46,13 +46,24 @@ function update_student_details()
     })
 }
 
-function logout()
+async function logout()
 {
-    fetch('/user/logout')
+    await fetch('/user/logout')
+    window.location.href = '/signin'
 }
 
-document.addEventListener('DOMContentLoaded',()=>{
+document.addEventListener('DOMContentLoaded',async ()=>{
     // document.getElementById('student_name').value = 'hi'
     // console.log(document.cookie)
     // document.cookie = 'username = Vikash'
+    var data=await fetch('/user/info').then(res=>res.json())
+    console.log(data)
+    document.getElementById('student_name').value = data.data.name
+    document.getElementById('student_father_name').value = data.data.fatherName
+    document.getElementById('student_mother_name').value = data.data.motherName
+    document.getElementById('student_branch').value = data.data.branch
+    document.getElementById('student_year_of_study').value = data.data.yearOfStudy
+    document.getElementById('student_year_of_admission').value = data.data.yearOfAdmission
+    document.getElementById('student_backlog').value = data.data.backlog
+    document.getElementById('student_date_of_birth').value = new Date(data.data.dob).toISOString().split('T')[0]
 })
