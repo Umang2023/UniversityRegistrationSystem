@@ -84,13 +84,13 @@ document.addEventListener('DOMContentLoaded', async () => {
                 unRegisterButton.innerHTML = 'Unregister'
                 unRegisterButton.setAttribute("class", "unregister_btn");
                 // registerButton.setAttribute("id", "unreg_btn");
-                unRegisterButton.onclick = UnRegisterCourse(course.courseID);
+                unRegisterButton.onclick = function(){UnRegisterCourse(course.courseID);}
                 actionDiv.appendChild(unRegisterButton)
             } else {
                 var registerButton = document.createElement('button')
                 registerButton.innerHTML = 'Register'
                 registerButton.setAttribute("class", "register_btn");
-                registerButton.onclick = RegisterCourse(course.courseID);
+                registerButton.onclick = function(){RegisterCourse(course.courseID);}
                 // registerButton.setAttribute("id", "reg_btn");
                 actionDiv.appendChild(registerButton)
             }
@@ -107,9 +107,11 @@ function RegisterCourse(courseID) {
     fetch('/course/register', {
         method: 'PUT',
         headers: {
-            'Content-type': 'application/json;'
+            'Content-type': 'application/json'
         },
-        body: JSON.stringify(courseID)
+        body: JSON.stringify({
+            courseID,
+        })
     }).then(res => res.json())
         .then(data => console.log(data))
 }
@@ -119,9 +121,11 @@ function UnRegisterCourse(courseID) {
     fetch('/course/drop', {
         method: 'PUT',
         headers: {
-            'Content-type': 'application/json;'
+            'Content-type': 'application/json'
         },
-        body: JSON.stringify(courseID)
+        body: JSON.stringify({
+            courseID,
+        })
     }).then(res => res.json())
         .then(data => console.log(data))
 }
