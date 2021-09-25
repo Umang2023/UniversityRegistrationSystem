@@ -84,13 +84,13 @@ document.addEventListener('DOMContentLoaded', async () => {
                 unRegisterButton.innerHTML = 'Unregister'
                 unRegisterButton.setAttribute("class", "unregister_btn");
                 // registerButton.setAttribute("id", "unreg_btn");
-                unRegisterButton.onclick = function(){UnRegisterCourse(course.courseID);}
+                unRegisterButton.onclick = function () { UnRegisterCourse(course.courseID); }
                 actionDiv.appendChild(unRegisterButton)
             } else {
                 var registerButton = document.createElement('button')
                 registerButton.innerHTML = 'Register'
                 registerButton.setAttribute("class", "register_btn");
-                registerButton.onclick = function(){RegisterCourse(course.courseID);}
+                registerButton.onclick = function () { RegisterCourse(course.courseID); }
                 // registerButton.setAttribute("id", "reg_btn");
                 actionDiv.appendChild(registerButton)
             }
@@ -113,7 +113,14 @@ function RegisterCourse(courseID) {
             courseID,
         })
     }).then(res => res.json())
-        .then(data => console.log(data))
+        .then((data) => {
+            console.log(data);
+            if (data.isError === false) {
+                M.toast({ html: `${data.message} <br> Refresh the page to see changes `, classes: 'toast-btn' })
+                // setTimeout({}, 10000)
+                // window.location.reload()
+            }
+        })
 }
 
 function UnRegisterCourse(courseID) {
@@ -127,5 +134,12 @@ function UnRegisterCourse(courseID) {
             courseID,
         })
     }).then(res => res.json())
-        .then(data => console.log(data))
+        .then((data) => {
+            console.log(data);
+            if (data.isError === false) {
+                M.toast({ html: `${data.message} <br> Refresh the page to see changes `, classes: 'toast-btn' })
+                // setTimeout({}, 10000)
+                // window.location.reload()
+            }
+        })
 }

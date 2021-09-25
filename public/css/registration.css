@@ -22,3 +22,60 @@ body {
     justify-content: center;
     flex-direction: column;
 }
+
+.toast-btn {
+    display: block;
+    border-radius: 25px;
+    margin: 1rem 0;
+    font-size: 1.2rem !important;
+    outline: none;
+    border: none;
+    background-image: linear-gradient(to right, #5557ec, #3134db, #1e2097);
+    cursor: pointer;
+    color: #fff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-size: 200%;
+    text-transform: uppercase;
+    transition: 0.5s;
+    border-radius: 15px !important;
+}
+
+.register_btn {
+    display: block;
+    border-radius: 25px;
+    text-align: center;
+    margin: 1rem 0;
+    padding: 0.7rem 1rem;
+    width: fit-content;
+    height: fit-content;
+    font-size: 1.2rem !important;
+    outline: none;
+    border: none;
+    background-color: green;
+    cursor: pointer;
+    color: #fff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-size: 200%;
+    transition: 0.5s;
+    border-radius: 15px !important;
+}
+
+.unregister_btn {
+    display: block;
+    text-align: center;
+    border-radius: 25px;
+    margin: 1rem 0;
+    padding: 0.7rem 1rem;
+    width: fit-content;
+    height: fit-content;
+    font-size: 1.2rem !important;
+    outline: none;
+    border: none;
+    background-color: red;
+    cursor: pointer;
+    color: #fff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-size: 200%;
+    transition: 0.5s;
+    border-radius: 15px !important;
+}
