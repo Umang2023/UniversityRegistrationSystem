@@ -109,4 +109,26 @@ router.put('/drop' , authMiddleware, async(req,res)=>{
     }
 })
 
+router.put('/addFaculty', authMiddleware, adminMiddleware, async(req,res)=>{
+    try{
+        const courseID=req.body.courseID;
+        const facultyName=req.body.facultyName;
+        var courseSelected = await Course.findOne({courseID})
+
+        if(!courseSelected) throw new Error('No such course available')
+
+        const courseUpdated = await Course.findOneAndUpdate({courseID:courseID},{
+            $addToSet:{faculty:facultyName}
+        },{
+            new:true
+        })
+
+        return res.status(200).json({isError:false,  message:"faculty added successfully", data:courseUpdated})
+    }catch(error)
+    {
+        return res.status(400).json({isError:true ,  message:error.message})
+    }
+    
+})
+
 module.exports = router;

@@ -10,7 +10,25 @@ router.get('/current',authMiddleware , async (req,res)=>{
     // project aggregation
     var allAnnouncement = await Announcement.aggregate(
     [
-        {$sort:{date:-1}}
+        {
+            $lookup:{
+                from:"users",
+                localField:"postedBy",
+                foreignField:"_id",
+                as:"postedBy"
+            }
+        },
+        {$sort:{date:-1}},
+        {
+            $project:{
+                title:1,
+                department:1, 
+                content:1,
+                date:1,
+                "postedBy.name":1, 
+                "postedBy.email":1
+            }
+        }
     ]
     )
 
@@ -45,28 +63,6 @@ router.post('/add' , authMiddleware, adminMiddleware , async (req,res)=>{
         // console.log(error.message)
         return res.status(400).json({isError:true ,  message:error.message})
     }
-})
-
-router.put('/addFaculty', authMiddleware, adminMiddleware, async(req,res)=>{
-    try{
-        const courseID=req.body.courseID;
-        const facultyName=req.body.facultyName;
-        var courseSelected = await Course.findOne({courseID})
-
-        if(!courseSelected) throw new Error('No such course available')
-
-        const courseUpdated = await Course.findOneAndUpdate({courseID:courseID},{
-            $addToSet:{faculty:facultyName}
-        },{
-            new:true
-        })
-
-        return res.status(200).json({isError:false,  message:"faculty added successfully", data:courseUpdated})
-    }catch(error)
-    {
-        return res.status(400).json({isError:true ,  message:error.message})
-    }
-    
 })
 
 module.exports = router;
