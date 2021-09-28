@@ -19,6 +19,9 @@ const courseSchema = new mongoose.Schema({
     totalSeats:{
         type:Number
     },
+    credits:{
+        type:Number
+    },
     remainingSeats:{
         type:Number
     }

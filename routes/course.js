@@ -3,6 +3,7 @@ const router = express.Router()
 const authMiddleware=require('../middleware/authMiddlware')
 const User = require('../schema/user')
 const Course = require('../schema/course')
+const adminMiddleware = require('../middleware/adminMiddleware')
 
 router.get('/current',authMiddleware , async (req,res)=>{
     // project aggregation
@@ -14,7 +15,7 @@ router.get('/current',authMiddleware , async (req,res)=>{
 
 })
 
-router.post('/addCourse' , authMiddleware , async (req,res)=>{
+router.post('/addCourse' , authMiddleware, adminMiddleware , async (req,res)=>{
     try{
         const courseName=req.body.courseName
         const courseID=req.body.courseID

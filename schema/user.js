@@ -32,6 +32,12 @@ const userSchema = new mongoose.Schema({
     backlog: {
         type: Number
     },
+    isAdmin:{
+        type:Boolean
+    },
+    role:{
+        type:String
+    },
     registeredCourses: [{
         type: ObjectId,
         ref: 'Course',
