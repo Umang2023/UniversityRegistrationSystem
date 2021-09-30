@@ -8,7 +8,7 @@ const adminMiddleware = require('../middleware/adminMiddleware')
 router.get('/current',authMiddleware , async (req,res)=>{
     // project aggregation
     var allCourseDetails = await Course.aggregate([
-        {$project:{courseName:1 , courseID:1 , remainingSeats : 1}},
+        {$project:{courseName:1 , courseID:1 , remainingSeats : 1, department:1}},
     ])
 
     return res.status(200).json({isError:false , allCourseDetails})

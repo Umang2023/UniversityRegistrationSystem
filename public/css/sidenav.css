@@ -1,26 +1,66 @@
-* {
-    margin: 0;
-    padding: 0;
+.sidenav.sidenav-fixed {
+    width: 21vw;
 }
 
-body {
-    height: 100vh;
-}
-
-.grid-container {
-    display: grid;
-    justify-content: center;
+.sidenav-li-items {
     text-align: center;
-    grid-template-columns: 5% 10% 30% 20% 15% 20%;
+    /* margin-top: 2rem; */
+    /* margin-bottom: 2rem; */
 }
 
-.grid-item {
-    font-size: 1.2rem !important;
-    border: 1px black solid;
+.sidenav-li-items>.sidenav-link {
+    font-size: x-large;
+    color: white !important;
+}
+
+.btn-div {
+    width: 100%;
     display: flex;
-    align-items: center;
     justify-content: center;
-    flex-direction: column;
+    align-items: center;
+    flex-direction: row;
+}
+
+.btn {
+    display: block;
+    width: 20%;
+    height: 50px !important;
+    border-radius: 25px;
+    margin: 1rem 0;
+    font-size: 1.2rem !important;
+    outline: none;
+    border: none;
+    background-image: linear-gradient(to right, #5557ec, #3134db, #1e2097);
+    cursor: pointer;
+    color: #fff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-size: 200%;
+    text-transform: uppercase;
+    transition: 0.5s;
+    border-radius: 15px !important;
+}
+
+.btn:hover, .btn-link:hover {
+    background-position: right;
+}
+
+.btn-link {
+    display: block;
+    height: fit-content !important;
+    border-radius: 25px;
+    margin: 1rem 1rem;
+    font-size: 1.2rem !important;
+    outline: none;
+    border: none;
+    background-image: linear-gradient(to right, #5557ec, #3134db, #1e2097);
+    cursor: pointer;
+    color: #fff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-size: 200%;
+    text-transform: uppercase;
+    transition: 0.5s;
+    border-radius: 15px !important;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
 }
 
 .toast-btn {
@@ -40,42 +80,7 @@ body {
     border-radius: 15px !important;
 }
 
-.register_btn {
-    display: block;
-    border-radius: 25px;
-    text-align: center;
-    margin: 1rem 0;
-    padding: 0.7rem 1rem;
-    width: fit-content;
-    height: fit-content;
-    font-size: 1.2rem !important;
-    outline: none;
-    border: none;
-    background-color: green;
-    cursor: pointer;
-    color: #fff;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-size: 200%;
-    transition: 0.5s;
-    border-radius: 15px !important;
-}
-
-.unregister_btn {
-    display: block;
-    text-align: center;
-    border-radius: 25px;
-    margin: 1rem 0;
-    padding: 0.7rem 1rem;
-    width: fit-content;
-    height: fit-content;
-    font-size: 1.2rem !important;
-    outline: none;
-    border: none;
-    background-color: red;
-    cursor: pointer;
-    color: #fff;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-size: 200%;
-    transition: 0.5s;
-    border-radius: 15px !important;
+.logo-img {
+    width: 200px;
+    height: 200px;
 }

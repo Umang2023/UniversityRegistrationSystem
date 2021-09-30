@@ -29,6 +29,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         `
         containerGrid.appendChild(nameDivTitle)
 
+        var departmentDivTitle = document.createElement('div')
+        departmentDivTitle.setAttribute('class', 'grid-item')
+        departmentDivTitle.innerHTML = `
+            Department
+        `
+        containerGrid.appendChild(departmentDivTitle)
+
         var remainingSeatsDivTitle = document.createElement('div')
         remainingSeatsDivTitle.setAttribute('class', 'grid-item')
         remainingSeatsDivTitle.innerHTML = `
@@ -66,6 +73,14 @@ document.addEventListener('DOMContentLoaded', async () => {
             ${course.courseName}
         `
             containerGrid.appendChild(nameDiv)
+
+            var departmentDiv = document.createElement('div')
+            departmentDiv.setAttribute('class', 'grid-item')
+            departmentDiv.innerHTML = `
+            ${course.department}
+        `
+
+            containerGrid.appendChild(departmentDiv)
 
             var remainingSeatsDiv = document.createElement('div')
             remainingSeatsDiv.setAttribute('class', 'grid-item')

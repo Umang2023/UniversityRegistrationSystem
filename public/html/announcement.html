@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>University Registration System</title>
     <link rel="stylesheet" href="../css/home.css" />
+    <link rel="stylesheet" href="../css/sidenav.css" />
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
     <link
       rel="stylesheet"
@@ -13,8 +14,30 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </head>
   <body>
-    <h3>keep visiting to look for new announcements</h3>
-    <div class="announcement-container">
+    <!-- <h3>keep visiting to look for new announcements</h3> -->
+
+    <ul class="sidenav sidenav-fixed" style="background-color: #5557ec">
+      <li class="sidenav-li-items">
+        <img src="../img/univ_logo.png" class="logo-img" />
+      </li>
+      <li class="sidenav-li-items">
+        <a href="/" class="sidenav-link btn-link">My information</a>
+      </li>
+      <li class="sidenav-li-items">
+        <a href="/announcement" class="sidenav-link btn-link">Announcements</a>
+      </li>
+      <li class="sidenav-li-items">
+        <a href="/courses" class="sidenav-link btn-link">My courses</a>
+      </li>
+      <li class="sidenav-li-items">
+        <a href="/registration" class="sidenav-link btn-link">Course Registration</a>
+      </li>
+    </ul>
+
+    <div style="margin-left: 23%; margin-right: 2%;">
+      <h3>Announcements</h3>
+      <div class="announcement-container"></div>
+    </div>
 
     </div>
   </body>
