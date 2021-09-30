@@ -5,7 +5,7 @@
 }
 
 body {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Noto Serif', serif;
     width: 100vw;
     height: 100vh;
     background-color: rgb(255, 255, 255);
@@ -87,7 +87,7 @@ form {
     border: 1px solid #8a0000;
     background-color: #e58f8f;
     opacity: 0;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Noto Serif', serif;
     border-radius: 5px;
 }
 
@@ -177,7 +177,7 @@ form {
     padding: 0.5rem 0.7rem;
     font-size: 1.2rem;
     color: #555;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Noto Serif', serif;
 }
 
 a {
@@ -221,7 +221,7 @@ a:hover {
     background-image: linear-gradient(to right, #5557ec, #3134db, #1e2097);
     cursor: pointer;
     color: #fff;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Noto Serif', serif;
     background-size: 200%;
     text-transform: uppercase;
     transition: 0.5s;

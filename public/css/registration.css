@@ -5,22 +5,35 @@
 
 body {
     height: 100vh;
+    font-family: 'Noto Serif', serif;
 }
 
 .grid-container {
+    width: 75vw;
     display: grid;
     justify-content: center;
     text-align: center;
-    grid-template-columns: 5% 10% 30% 20% 15% 20%;
+    grid-template-columns: 8% 15% 25% 20% 15% 17%;
+    margin: 1rem;
 }
 
 .grid-item {
     font-size: 1.2rem !important;
-    border: 1px black solid;
+    border: 1px #5557ec solid;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    padding: 1rem;
+    border-radius: 7px;
+}
+
+.header-row {
+    font-weight: 900;
+    background-color: #5557ec;
+    color: #fff;
+    border-color: #fff;
+    border-radius: 7px;
 }
 
 .toast-btn {
@@ -33,7 +46,7 @@ body {
     background-image: linear-gradient(to right, #5557ec, #3134db, #1e2097);
     cursor: pointer;
     color: #fff;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Noto Serif', serif;
     background-size: 200%;
     text-transform: uppercase;
     transition: 0.5s;
@@ -54,7 +67,7 @@ body {
     background-color: green;
     cursor: pointer;
     color: #fff;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Noto Serif', serif;
     background-size: 200%;
     transition: 0.5s;
     border-radius: 15px !important;
@@ -74,7 +87,7 @@ body {
     background-color: red;
     cursor: pointer;
     color: #fff;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Noto Serif', serif;
     background-size: 200%;
     transition: 0.5s;
     border-radius: 15px !important;

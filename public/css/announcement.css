@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    font-family: 'Noto Serif', serif;
+}
+
+.announcement-box {
+    font-size: 1.2rem !important;
+    border: 1px #5557ec solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 1rem;
+    border-radius: 7px;
+    text-align: justify;
+    text-justify: inter-word;
+}

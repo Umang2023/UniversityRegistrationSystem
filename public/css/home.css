@@ -1,11 +1,13 @@
 * {
     margin: 0px;
     padding: 0px;
+    font-family: 'Noto Serif', serif;
     /* overflow-x: hidden; */
 }
 
 .sidenav.sidenav-fixed {
     width: 21vw;
+    font-family: 'Noto Serif', serif;
 }
 
 .sidenav-li-items {
@@ -106,7 +108,7 @@
     background-image: linear-gradient(to right, #5557ec, #3134db, #1e2097);
     cursor: pointer;
     color: #fff;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Noto Serif', serif;
     background-size: 200%;
     text-transform: uppercase;
     transition: 0.5s;
@@ -128,7 +130,7 @@
     background-image: linear-gradient(to right, #5557ec, #3134db, #1e2097);
     cursor: pointer;
     color: #fff;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Noto Serif', serif;
     background-size: 200%;
     text-transform: uppercase;
     transition: 0.5s;
@@ -146,13 +148,18 @@
     background-image: linear-gradient(to right, #5557ec, #3134db, #1e2097);
     cursor: pointer;
     color: #fff;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Noto Serif', serif;
     background-size: 200%;
     text-transform: uppercase;
     transition: 0.5s;
     border-radius: 15px !important;
 }
 
+input {
+    font-family: 'Noto Serif', serif !important;
+}
+
 input[type=text]:focus, input[type=date]:focus {
     border-bottom: 2px solid #5557ec !important;
+    font-family: 'Noto Serif', serif;
 }

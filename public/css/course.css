@@ -5,21 +5,34 @@
 
 body {
     height: 100vh;
+    font-family: 'Noto Serif', serif;
 }
 
 .grid-container {
+    width: 75vw;
     display: grid;
     justify-content: center;
     text-align: center;
-    grid-template-columns: 5% 10% 15% 20% 20% 20% 10%
+    grid-template-columns: 8% 13% 15% 19% 18% 15% 12%;
+    margin: 1rem;
+    border-radius: 5px;
 }
 
 .grid-item {
     font-size: 1.2rem !important;
-    border: 1px black solid;
+    border: 1px #5557ec solid;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    padding: 1rem;
+    border-radius: 7px;
 }
 
+.header-row {
+    font-weight: 900;
+    background-color: #5557ec;
+    color: #fff;
+    border-color: #fff;
+    border-radius: 7px;
+}

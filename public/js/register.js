@@ -8,14 +8,14 @@ document.addEventListener('DOMContentLoaded', async () => {
         var containerGrid = document.querySelector('.grid-container')
         // assuming to be no error
         var indexDivTitle = document.createElement('div')
-        indexDivTitle.setAttribute('class', 'grid-item')
+        indexDivTitle.setAttribute('class', 'grid-item header-row')
         indexDivTitle.innerHTML = `
             S. No.
         `
         containerGrid.appendChild(indexDivTitle)
 
         var idDivTitle = document.createElement('div')
-        idDivTitle.setAttribute('class', 'grid-item')
+        idDivTitle.setAttribute('class', 'grid-item header-row')
         idDivTitle.innerHTML = `
             Course ID
         `
@@ -23,28 +23,28 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 
         var nameDivTitle = document.createElement('div')
-        nameDivTitle.setAttribute('class', 'grid-item')
+        nameDivTitle.setAttribute('class', 'grid-item header-row')
         nameDivTitle.innerHTML = `
             Course Name
         `
         containerGrid.appendChild(nameDivTitle)
 
         var departmentDivTitle = document.createElement('div')
-        departmentDivTitle.setAttribute('class', 'grid-item')
+        departmentDivTitle.setAttribute('class', 'grid-item header-row')
         departmentDivTitle.innerHTML = `
             Department
         `
         containerGrid.appendChild(departmentDivTitle)
 
         var remainingSeatsDivTitle = document.createElement('div')
-        remainingSeatsDivTitle.setAttribute('class', 'grid-item')
+        remainingSeatsDivTitle.setAttribute('class', 'grid-item header-row')
         remainingSeatsDivTitle.innerHTML = `
             Remaining Seats
         `
         containerGrid.appendChild(remainingSeatsDivTitle)
 
         var actionDivTitle = document.createElement('div')
-        actionDivTitle.setAttribute('class', 'grid-item')
+        actionDivTitle.setAttribute('class', 'grid-item header-row')
         actionDivTitle.innerHTML = `
             Action
         `
