@@ -12,7 +12,7 @@ const adminMiddleware = async (req,res,next)=>{
         throw new Error('wrong admin password')
     }catch(error){
         // res.redirect('/signin')
-        return res.status(401).json({isError:true, message:error.message})
+        return res.status(400).json({isError:true, message:error.message})
     }
 }
 

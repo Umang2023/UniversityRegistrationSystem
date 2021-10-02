@@ -4,6 +4,7 @@ const authMiddleware=require('../middleware/authMiddlware')
 const User = require('../schema/user')
 const Course = require('../schema/course')
 const adminMiddleware = require('../middleware/adminMiddleware')
+const registrationMiddleware = require('../middleware/registrationStarted')
 
 router.get('/current',authMiddleware , async (req,res)=>{
     // project aggregation
@@ -47,7 +48,7 @@ router.post('/addCourse' , authMiddleware, adminMiddleware , async (req,res)=>{
     }
 })
 
-router.put('/register',authMiddleware , async(req,res)=>{
+router.put('/register',authMiddleware, registrationMiddleware , async(req,res)=>{
     try{
         const courseID=req.body.courseID;
         var courseSelected = await Course.findOne({courseID})
@@ -81,7 +82,7 @@ router.put('/register',authMiddleware , async(req,res)=>{
     
 })
 
-router.put('/drop' , authMiddleware, async(req,res)=>{
+router.put('/drop' , authMiddleware, registrationMiddleware, async(req,res)=>{
     try{
         const courseID=req.body.courseID;
         var courseSelected = await Course.findOne({courseID})
@@ -128,6 +129,17 @@ router.put('/addFaculty', authMiddleware, adminMiddleware, async(req,res)=>{
     {
         return res.status(400).json({isError:true ,  message:error.message})
     }
+    
+})
+
+router.get('/start_stop_registration',authMiddleware,adminMiddleware,async(req,res)=>{
+    
+    if(process.env.REGISTRATION_STARTED == 'false')
+    process.env['REGISTRATION_STARTED'] = 'true'
+    else
+    process.env['REGISTRATION_STARTED'] = 'false'
+
+    return res.status(200).json({REGISTRATION_STARTED:process.env.REGISTRATION_STARTED})
     
 })
 

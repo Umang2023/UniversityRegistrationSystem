@@ -151,11 +151,19 @@ async function RegisterCourse(courseID) {
                 M.toast({ html: `${data.message} <br> Refresh the page to see changes `, classes: 'toast-btn' })
                 // setTimeout({}, 10000)
                 // window.location.reload()
+                return true;
             }
             else
-            return false
+            {
+                if(data.message === 'WAIT')
+                {
+                    window.alert('Course registration/drop period over')
+                }
+                    
+                return false;
+            }
         })
-    return true
+    // return true
 }
 
 async function UnRegisterCourse(courseID) {
@@ -175,10 +183,17 @@ async function UnRegisterCourse(courseID) {
                 M.toast({ html: `${data.message} <br> Refresh the page to see changes `, classes: 'toast-btn' })
                 // setTimeout({}, 10000)
                 // window.location.reload()
-                
+                return true   
             }
             else
-            return false
+            {
+                if(data.message === 'WAIT')
+                {
+                    window.alert('Course registration/drop period over')
+                }
+                    
+                return false;
+            }
+            
         })
-        return true
 }
