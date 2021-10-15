@@ -132,7 +132,7 @@ router.put('/addFaculty', authMiddleware, adminMiddleware, async(req,res)=>{
     
 })
 
-router.get('/start_stop_registration',authMiddleware,adminMiddleware,async(req,res)=>{
+router.put('/start_stop_registration',authMiddleware,adminMiddleware,async(req,res)=>{
     
     if(process.env.REGISTRATION_STARTED == 'false')
     process.env['REGISTRATION_STARTED'] = 'true'
